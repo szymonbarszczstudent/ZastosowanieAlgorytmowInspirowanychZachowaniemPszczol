@@ -17,13 +17,13 @@ class ProblemNHetmanow:
                 pierwsza_kolumna = generator_losowy.choice(kolumny_w_konflikcie)
             else:
                 pierwsza_kolumna = generator_losowy.randrange(self.rozmiar)
-                mozliwe_kolumny = [
-                    kolumna
-                    for kolumna in range(self.rozmiar)
-                    if kolumna != pierwsza_kolumna
-                ]
-                druga_kolumna = generator_losowy.choice(mozliwe_kolumny)
-                kandydat[pierwsza_kolumna], kandydat[druga_kolumna]=kandydat[druga_kolumna], kandydat[pierwsza_kolumna]
+            mozliwe_kolumny = [
+                kolumna
+                for kolumna in range(self.rozmiar)
+                if kolumna != pierwsza_kolumna
+            ]
+            druga_kolumna = generator_losowy.choice(mozliwe_kolumny)
+            kandydat[pierwsza_kolumna], kandydat[druga_kolumna]=kandydat[druga_kolumna], kandydat[pierwsza_kolumna]
         return kandydat
     def koszt(self, rozwiazanie):
         liczba_konfliktow = 0
