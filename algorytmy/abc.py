@@ -52,7 +52,9 @@ class ABC:
             for _ in range(len(zrodla)):
                 if liczba_ocen >=maksymalna_liczba_ocen:
                     break
-                wagi = [1.0/(1.0+koszt) for koszt in koszty]
+                wagi = []
+                for koszt in koszty:
+                    wagi.append(1.0 / (1.0 + koszt))
                 indeks = generator_losowy.choices(
                     range(len(zrodla)),
                     weights=wagi,
