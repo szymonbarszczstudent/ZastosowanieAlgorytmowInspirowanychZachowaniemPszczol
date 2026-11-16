@@ -40,7 +40,7 @@ class BA:
             historia.append(najnizszy_koszt)
             return koszt
         # Tworzenie początkowej populacji losowych rozwiązań.
-        for _ in range(self.rozmiar_populacji):
+        for i in range(self.rozmiar_populacji):
             if liczba_ocen >= maksymalna_liczba_ocen:
                 break
             rozwiazanie = problem.losowe_rozwiazanie(generator_losowy)
@@ -58,7 +58,7 @@ class BA:
                 1,
                 round(self.poczatkowy_rozmiar_obszaru *( 1- postep)),
             )
-            # W najlepszych miejscacn prowadzimy intensywne przeszukiwanie lokalne.
+            # W najlepszych miejscach prowadzimy intensywne przeszukiwanie lokalne.
             liczba_przeszukiwanych_miejsc = min(
                 self.liczba_wybranych_miejsc,
                 len(ranking),
@@ -72,7 +72,7 @@ class BA:
                     liczba_rekrutow = self.liczba_elitarnych_rekrutow
                 else:
                     liczba_rekrutow = self.liczba_pozostalych_rekrutow
-                for _ in range(liczba_rekrutow):
+                for i in range(liczba_rekrutow):
                     if liczba_ocen>= maksymalna_liczba_ocen:
                         break
                     kandydat = problem.sasiad(
@@ -95,7 +95,7 @@ class BA:
                 self.rozmiar_populacji - len(nowa_populacja)
             )
 
-            for _ in range(liczba_zwiadowczyn):
+            for i in range(liczba_zwiadowczyn):
                 if liczba_ocen >=maksymalna_liczba_ocen:
                     break
                 rozwiazanie = problem.losowe_rozwiazanie(generator_losowy)

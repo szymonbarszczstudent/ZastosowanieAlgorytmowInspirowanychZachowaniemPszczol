@@ -10,7 +10,7 @@ class ProblemNHetmanow:
         return rozwiazanie
     def sasiad(self, rozwiazanie, generator_losowy, sila=1):
         kandydat = rozwiazanie.copy()
-        for _ in range(sila):
+        for i in range(sila):
             kolumny_w_konflikcie = self._znajdz_kolumny_w_konflikcie(kandydat)
 
             if kolumny_w_konflikcie:

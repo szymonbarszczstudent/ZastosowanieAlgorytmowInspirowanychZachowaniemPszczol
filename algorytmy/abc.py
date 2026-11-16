@@ -22,7 +22,7 @@ class ABC:
             historia.append(najnizszy_koszt)
             return koszt
 # Tworzenie początkowytch, losowych źródeł pokarmu.
-        for _ in range(self.liczba_zrodel_pokarmu):
+        for i in range(self.liczba_zrodel_pokarmu):
             if liczba_ocen>=maksymalna_liczba_ocen:
                 break
             rozwiazanie = problem.losowe_rozwiazanie(generator_losowy)
@@ -49,7 +49,7 @@ class ABC:
                     liczby_prob,
                 )
             # Pszczoły obserwatorki częściej wybierają lepsze źródła pokarmu.
-            for _ in range(len(zrodla)):
+            for i in range(len(zrodla)):
                 if liczba_ocen >=maksymalna_liczba_ocen:
                     break
                 wagi = []

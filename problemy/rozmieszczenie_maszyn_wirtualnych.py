@@ -10,7 +10,7 @@ class ProblemRozmieszczeniaMaszynWirtualnychNaHostachFizycznychWChmurze:
         liczba_hostow = len(self.hosty)
         return [
             generator_losowy.randrange(liczba_hostow)
-            for _ in self.maszyny_wirtualne
+            for i in self.maszyny_wirtualne
         ]
     def sasiad(self, rozwiazanie, generator_losowy, sila=1):
                 kandydat = rozwiazanie.copy()
@@ -19,7 +19,7 @@ class ProblemRozmieszczeniaMaszynWirtualnychNaHostachFizycznychWChmurze:
                 if liczba_hostow < 2:
                     return kandydat
 
-                for _ in range(sila):
+                for i in range(sila):
                     indeks_maszyny = generator_losowy.randrange(len(kandydat))
                     start_host = kandydat[indeks_maszyny]
                     nowy_host = generator_losowy.randrange(liczba_hostow-1)
