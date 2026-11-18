@@ -65,8 +65,8 @@ def test_wilcoxona(wiersze, alpha=0.05):
                     "miara": miara,
                     "liczba par": len(roznice),
                     "statystyka": statystyka,
-                    "surowa wartosc p": round(surowa_wartosc_p,3),
-                    "mediana roznicy abc-ba": round(median(roznice),3),
+                    "surowa wartosc p": surowa_wartosc_p,
+                    "mediana roznicy abc-ba": median(roznice),
                 }
             )
     if not wyniki_testow:
@@ -89,8 +89,10 @@ def test_wilcoxona(wiersze, alpha=0.05):
         )
     return wyniki_testow
 def wniosek(mediana_roznicy, wartosc_p, poziom_istotnosci):
-    if wartosc_p >= poziom_istotnosci or mediana_roznicy == 0:
+    if wartosc_p >= poziom_istotnosci:
         return "Brak istotnej różnicy."
     if mediana_roznicy < 0:
-        return "ABC ma lepszy wynik."
-    return "BA ma lepszy wynik."
+        return "Istotna różnica, mediana różnic wskazuje na korzyść ABC."
+    if mediana_roznicy > 0:
+        return "Istotna różnica, mediana różnic wskazuje na korzyść BA."
+    return "Istotna różnica, ale mediana różnic wynosi zero."

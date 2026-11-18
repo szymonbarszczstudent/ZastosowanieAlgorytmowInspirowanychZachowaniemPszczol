@@ -3,7 +3,7 @@ class ProblemNHetmanow:
         if rozmiar < 4:
             raise ValueError("Liczba hetmanów musi być co najmniej = 4.")
         self.rozmiar = rozmiar
-        self.nazwa = f"problem{rozmiar}hetmanow"
+        self.nazwa = f"problem {rozmiar} hetmanow"
     def losowe_rozwiazanie(self, generator_losowy):
         rozwiazanie = list(range(self.rozmiar))
         generator_losowy.shuffle(rozwiazanie)
