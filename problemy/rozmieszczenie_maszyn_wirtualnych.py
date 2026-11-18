@@ -102,8 +102,8 @@ def utworz_problem_rozmieszczenia_maszyn(nazwa, liczba_maszyn, liczba_hostow, zi
         })
     laczna_liczba_cpu = sum(maszyna["cpu"] for maszyna in maszyny_wirtualne)
     laczna_ilosc_ram = sum(maszyna["ram"] for maszyna in maszyny_wirtualne)
-    laczna_pojemnosc_cpu = sum(host["cpu"] for host in maszyny_wirtualne)
-    laczna_pojemnosc_ram = sum(host["ram"] for host in maszyny_wirtualne)
+    laczna_pojemnosc_cpu = sum(host["cpu"] for host in hosty)
+    laczna_pojemnosc_ram = sum(host["ram"] for host in hosty)
 
     if laczna_liczba_cpu > laczna_pojemnosc_cpu or laczna_ilosc_ram >laczna_pojemnosc_ram:
         raise ValueError("Instancja ma za mało zasobów hostów.")
